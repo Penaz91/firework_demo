@@ -1,19 +1,22 @@
 #ifndef PARTICLE_HPP
 #define PARTICLE_HPP
 
-#include<SFML/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 
-class particle: public sf::Drawable
-{
-public:
-    particle(const sf::Vector2f& position = sf::Vector2f(0,0), const sf::Vector2f& destination = sf::Vector2f(0,0), const sf::Color& color = sf::Color::White, const float& radius = 5.0f, const float& fuseTimer = 2.0f);
-    virtual ~particle () = default;
-    void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
+class particle : public sf::Drawable {
+   public:
+    particle(const sf::Vector2f& position = sf::Vector2f(0, 0),
+             const sf::Vector2f& destination = sf::Vector2f(0, 0),
+             const sf::Color& color = sf::Color::White,
+             const float& radius = 5.0f,
+             const float& fuseTimer = 2.0f);
+    virtual ~particle() = default;
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
     void update(sf::Time timeElapsed);
     bool bExtinguished;
     float fDescentSpeed;
 
-private:
+   private:
     /* data */
     sf::Vector2f vPosition;
     float fLifetime;
